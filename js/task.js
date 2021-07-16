@@ -11,6 +11,11 @@
 	function addList(){
 
 		var title = document.getElementById('title').value;
+		if (title.length > 50)
+		{
+			return;
+		}
+		
 		document.getElementById("title").value = "";		
 		//console.log("In add");
 		createListDisplay(title);
@@ -167,7 +172,15 @@
 	
 	/* CARD FUNCTIONS */
 	
+	function getRndInteger(min, max) {
+	  return Math.floor(Math.random() * (max - min) ) + min;
+	}
+
 	function addCard(no){
+		
+		if (getRndInteger(1,8) == 1) {
+			return;
+		}
 		
 		var c = document.getElementById(no+'_card_content').value;
 		document.getElementById(no+'_card_content').value = "";
